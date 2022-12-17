@@ -27,10 +27,19 @@
                 <div class="hand" id="scissors">
                     <i class="fa-regular  fa-hand-scissors" onclick='choose("scissors")'></i>
                 </div>
+            </div>
+            <div class="content">
+                <div class="score">
+                    <h2 id="pscore"></h2>
+                </div>
                 <div class="output">
-                    <p id="output"></p><p id="score"></p>
+                    <p id="output"></p>
+                </div>
+                <div class="score">
+                    <h2 id="cscore"></h2>
                 </div>
             </div>
+
         </main>
         <footer>
             <div class="footer">
@@ -78,45 +87,45 @@
 
         switch (playerselection + computerselection) {
             case "rockrock":
-                output.innerHTML += "Computer chose rock. Tie!<br>"
+                output.innerHTML += "You chose rock.<br>Computer chose rock.<br>Tie!<br>"
                 return "Tie!";
                 break;
             case "rockpaper":
                 computerScore++;
-                output.innerHTML += "Computer chose paper. You lost!<br>"
+                output.innerHTML += "You chose rock.<br>Computer chose paper.<br>You lost!<br>"
                 return "You lost!";
                 break;
             case "rockscissors":
                 playerScore++;
-                output.innerHTML += "Computer chose scissors. You won!<br>"
+                output.innerHTML += "You chose rock.<br>Computer chose scissors.<br>You won!<br>"
                 return "You won!";
                 break;
             case "paperrock":
                 playerScore++;
-                output.innerHTML += "Computer chose rock. You won!<br>"
+                output.innerHTML += "You chose paper.<br>Computer chose rock.<br>You won!<br>"
                 return "You won!";
                 break;
             case "paperpaper":
-                output.innerHTML += "Computer chose paper. Tie!<br>"
+                output.innerHTML += "You chose paper.<br>Computer chose paper.<br>Tie!<br>"
                 return "Tie!";
                 break;
             case "paperscissors":
                 computerScore++;
-                output.innerHTML += "Computer chose scissors. You lost!<br>"
+                output.innerHTML += "You chose paper.<br>Computer chose scissors.<br>You lost!<br>"
                 return "You lost!";
                 break;
             case "scissorsrock":
                 computerScore++;
-                output.innerHTML += "Computer chose rock. You lost!<br>"
+                output.innerHTML += "You chose scissors.<br>Computer chose rock.<br>You lost!<br>"
                 return "You lost!";
                 break;
             case "scissorspaper":
                 playerScore++;
-                output.innerHTML += "Computer chose paper. You won!<br>"
+                output.innerHTML += "You chose scissors.<br>Computer chose paper.<br>You won!<br>"
                 return "You won!";
                 break;
             case "scissorsscissors":
-                output.innerHTML += "Computer chose scissors. Tie!<br>"
+                output.innerHTML += "You chose scissors.<br>Computer chose scissors.<br>Tie!<br>"
                 return "Tie!";
                 break;
             default:
@@ -130,7 +139,8 @@
         computerScore = 0;
         console.log("Starting new game.");
         output.innerHTML += "Starting new game.<br>";
-        score.innerHTML = "You: " + playerScore + " | Computer: " + computerScore;
+        pscore.innerHTML = "You: <br><br>" + playerScore;
+        cscore.innerHTML = "Computer: <br><br>" + computerScore;
     };
 
     function choose(playerselection) {
@@ -139,7 +149,8 @@
         var roundResult = playRound(playerSelection, computerSelection);
         console.log(roundResult);
         console.log("You: " + playerScore + " | Computer: " + computerScore)
-        score.innerHTML = "You: " + playerScore + " | Computer: " + computerScore;
+        pscore.innerHTML = "You: <br><br>" + playerScore;
+        cscore.innerHTML = "Computer: <br><br>" + computerScore;
         if (playerScore > 2) {
             output.innerHTML += "You won this best-out-of-five!<br>"
             console.log("You won this best-out-of-five.");
@@ -152,7 +163,8 @@
     }
 
     var output = document.getElementById("output");
-    var score = document.getElementById("score");
+    var pscore = document.getElementById("pscore");
+    var cscore = document.getElementById("cscore");
     var playerScore;
     var computerScore;
     newGame();
