@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Odin Rock Paper Scissors</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://kit.fontawesome.com/c91d7ef7d0.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header">
+                <h1>Odin Rock Paper Scissors </h1>
+            </div>
+        </header>
+        <main>
+            <div class="content">
+                <div class="hand" id="rock">
+                    <i class="fa-regular fa-hand-rock" onclick='choose("rock")'></i>
+                </div>
+                <div class="hand" id="paper">
+                    <i class="fa-regular fa-hand-paper" onclick='choose("paper")'></i>
+                </div>
+                <div class="hand" id="scissors">
+                    <i class="fa-regular  fa-hand-scissors" onclick='choose("scissors")'></i>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="footer">
+
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    function test() {
+        console.log("hooray");
+    }
+
+    function random(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    function getComputerChoice() {
+        var choice = random(0, 3);
+        console.log(choice);
+
+        switch (choice) {
+            case 0:
+                return "rock";
+                break;
+            case 1:
+                return "paper";
+                break;
+            case 2:
+                return "scissors";
+                break;
+            default:
+                console.log("Something's gone wrong here!");
+                break;
+        }
+    }
+
+    function playRound(playerselection, computerselection) {
+        console.log("Computer chose " + computerselection);
+        console.log("You chose " + playerselection);
+
+        switch (playerselection + computerselection) {
+            case "rockrock":
+                return "Tie!";
+                break;
+            case "rockpaper":
+                return "You lost!";
+                break;
+            case "rockscissors":
+                return "You won!";
+                break;
+            case "paperrock":
+                return "You won!";
+                break;
+            case "paperpaper":
+                return "Tie!";
+                break;
+            case "paperscissors":
+                return "You lost!";
+                break;
+            case "scissorsrock":
+                return "You lost!";
+                break;
+            case "scissorspaper":
+                return "You won!";
+                break;
+            case "scissorsscissors":
+                return "Tie!";
+                break;
+            default:
+                console.log("Something's gone wrong here!");
+                break;
+        }
+    }
+
+    function choose(playerselection) {
+        var playerSelection = playerselection;
+        var computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+
+
+</script>

@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Indie+Flower&family=Montserrat&family=Quicksand&display=swap');
+
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.6em;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    margin: 20px;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    padding: 20px 100px 20px 100px;
+}
+
+.content i:hover {
+    font-size: 1.1em;
+}
+
+.hand {
+    font-size: 10em;
+    border: 1px solid #000;
+    padding: 20px;
+    margin: 20px;
+}
+
+
